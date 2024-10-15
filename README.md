@@ -1,2 +1,2 @@
-# traffic_optimization
-Traffic Signal and Rout Optimization using Quantum Computing
+# Traffic Optimization
+Traffic Signal and Rout Optimization using Quantum Annealing
