@@ -99,16 +99,12 @@ After 20 seconds, recalculate the QUBO, and if the signal remains unchanged, ext
 
     Thus, we introduce the following **constraint term** to enforce this condition:
 
-    $$ 
-    0 = \left( \sum_{j \in \{1, 2, 3\}} q_{ij} - 1 \right)^2
-    $$
+    $$0 = \left( \sum_{j \in \{1, 2, 3\}} q_{ij} - 1 \right)^2$$
 
     This ensures that for each vehicle 𝑖, only one route 𝑗 is selected among the three possible routes.
 
     The cost associated with each road segment can be calculated based on the number of vehicles using that segment. For a road segment 𝑠, the cost is given by:
 
-    $$
-    \text{cost}(s) = \left( \sum_{q_{ij} \in B_s} q_{ij} \right)^2.
-    $$
+    $$\text{cost}(s) = \left( \sum_{q_{ij} \in B_s} q_{ij} \right)^2.$$
 
     Here, 𝐵_𝑠 represents the set of all vehicle-route pairs 𝑞_𝑖_𝑗 that include road segment 𝑠.
