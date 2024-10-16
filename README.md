@@ -5,6 +5,7 @@ This repository contains an implementation of Traffic Signal and Route Optimizat
 Table of Contents
 =================
 
+
 * [Overview](#Overview)
 * [Assumptions](#Assumptionst)
 * [Quantum Computing Approach](#Quantum-Computing-Approach)
@@ -61,6 +62,24 @@ After 20 seconds, recalculate the QUBO, and if the signal remains unchanged, ext
         1. Define the cost function based on the number of vehicles affected by each signal mode.
         2. Use adjacent intersections to adjust the signal timing dynamically.
         3. The optimization is recalculated every 10 seconds.
+- ***Explaination:-***
+
+    Binary Variable  **x_i_j** represents **ith intersection** in **mode j**
+
+    <img width="760" alt="image1" src="https://github.com/naitik-2006/traffic_optimization/blob/main/img.png">
+
+    C_i_j represent the number of vehicles that will exit the intersection if jth mode is activated at intesection i.
+
+    $$
+    \text{Obj} = -\sum_{i=1}^{n} \sum_{j=1}^{6} C_{ij} x_{ij}^2
+    $$
+
+    o establish a relationship between neighboring traffic signals, we consider two intersections as being related if they support each other and the time elapsed since the last activation of the 𝑗-th mode at one intersection is greater than or approximately equal to the time required to reach the neighboring intersection.
+
+    This ensures that the signals can effectively coordinate their timings based on the following criteria:
+
+    Supportive Relationship: The two intersections must influence each other's traffic flow positively.
+    Timing Condition: The elapsed time since the last activation of the 𝑗-th mode must be sufficiently long, ensuring that vehicles have enough time to reach the neighboring intersection without immediate signal changes.
 
 ## *Route Optimization*
 - ***Objective:-*** Minimize road congestion while allowing vehicles to take overlapping routes if the road segment can handle additional load.
